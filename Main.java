@@ -1,63 +1,120 @@
+/**
+ * Object management Device (Smartphone / Pad / Laptop)
+ * @author Tom Durand
+ * @version 0.2
+ */
 import java.util.*;
 
 public class Main {
+
+	public static String lastName() {
+		Scanner lectureScanner = new Scanner(System.in);
+		System.out.println("Enter the employee's name........:");
+		return(lectureScanner.next());
+	}
+
+	public static String firstName() {
+		Scanner lectureScanner = new Scanner(System.in);
+		System.out.println("Enter the employee's first name..: ");
+		return(lectureScanner.next());
+	}
+
+	public static String hireYear() {
+		Scanner lectureScanner = new Scanner(System.in);
+		System.out.println("Enter the date of employment.....: ");
+		return(lectureScanner.next());
+	}
 
 	public static void main(String[] args) {
 
 		Scanner lectureScanner = new Scanner(System.in);
 		ArrayList<Employee> listOfEmployees = new ArrayList<>();
-		int quitMenuCondition=0, choice=0;
-		String firstName, lastName, newName, brand, model, hireYear;
-		int phoneNumber;
+		int quitMenuCondition=0, choiceEmployee=0, phoneNumber, ifValue=0? quitSubMenuCondition=0, subChoice=0,;
+		String lName, fName, newName, brand, model;
 
 		do{
-			System.out.println("******************\n1/ Ajouter un employé à la base de données\n2/ Supprimer un employé de la base de données\n3/ Modifier le prénom d'un employé dans la base de données\n4/ Afficher tous les employés de la base de données\n5/ Associer un Smartphone à un employé\n6/ Dissocier un Smartphone d'un employé\n7/ Affecter un nouveau numéro à un Smartphone\n10/ Quitter\n******************");
-			choice = lectureScanner.nextInt();
-			switch(choice){
+			System.out.println("******************\n1/ Add an employee to the database\n2/ Delete an employee from the database\n3/ Modify the first name of an employee in the database\n4/ Display all employees in the database\n5/ Device menu\n6/ Leave\n******************");
+			choiceEmployee = lectureScanner.nextInt();
+			switch(choiceEmployee){
 
-				case 1: System.out.println("Veuillez entrer le nom de l'employé : ");
-						lastName=lectureScanner.next();
-						System.out.println("Veuillez entrer le prénom de l'employé : ");
-						firstName=lectureScanner.next();
-						System.out.println("Veuillez entrer la date d'embauche : ");
-						hireYear=lectureScanner.next();
-						listOfEmployees.add(new Employee(firstName, lastName, hireYear));
+				case 1: listOfEmployees.add(new Employee(firstName(), lastName(), hireYear()));
 						break;
 
-				case 2: System.out.println("Veuillez entrer le nom de l'employé : ");
-						lastName = lectureScanner.next();
-						System.out.println("Veuillez entrer le prénom de l'employé : ");
-						firstName = lectureScanner.next();
+				case 2: lName = lastName();
+						fName = firstName();
 						for (int i=0; i<listOfEmployees.size(); i++) {
-							if ((listOfEmployees.get(i).getFirstName()).equals(firstName) && (listOfEmployees.get(i).getLastName()).equals(lastName))
+							if ((listOfEmployees.get(i).getFirstName()).equals(fName) && (listOfEmployees.get(i).getLastName()).equals(lName)) {
 								listOfEmployees.remove(i);
+								ifValue++;
+							}
 						}
+						if (ifValue == 0) 
+							System.out.println("Employee not found.");
+						else
+							ifValue=0;
 						break;
 
-				case 3: System.out.println("Veuillez entrer le nom de l'employé : ");
-						lastName = lectureScanner.next();
-						System.out.println("Veuillez entrer le prénom de l'employé : ");
-						firstName = lectureScanner.next();
+				case 3: lName = lastName();
+						fName = firstName();
 						for (int i=0; i<listOfEmployees.size(); i++) {
-							if ((listOfEmployees.get(i).getFirstName()).equals(firstName) && (listOfEmployees.get(i).getLastName()).equals(lastName)){
-								System.out.println("Nouveau Nom : ");
+							if ((listOfEmployees.get(i).getFirstName()).equals(fName) && (listOfEmployees.get(i).getLastName()).equals(lName)){
+								System.out.println("New Name : ");
 								newName = lectureScanner.next();
 								listOfEmployees.get(i).setLastName(newName);
 							}
 						}
+						if (ifValue == 0) 
+							System.out.println("Employee not found.");
+						else
+							ifValue=0;
 						break;
 
 				case 4: for (int i=0; i<listOfEmployees.size(); i++) {
+							System.out.println("******************");
+							System.out.println("  Employee : " + (i+1) + "\n");
 							listOfEmployees.get(i).display();
+							System.out.println("******************");
 						}
 						break;		
-				
-				case 5: System.out.println("Veuillez entrer le nom de l'employé : ");
-						lastName = lectureScanner.next();
-						System.out.println("Veuillez entrer le prénom de l'employé : ");
-						firstName = lectureScanner.next();
+
+				case 5: lName = lastName();
+						fName = firstName();
 						for (int i=0; i<listOfEmployees.size(); i++) {
-							if ((listOfEmployees.get(i).getFirstName()).equals(firstName) && (listOfEmployees.get(i).getLastName()).equals(lastName)){
+							if ((listOfEmployees.get(i).getFirstName()).equals(fName) && (listOfEmployees.get(i).getLastName()).equals(lName)){
+								ifValue++;
+								do {
+									System.out.println("******************\n1/ Show all devices\n2/ Smartphone\n3/ Pad\n4/ Laptop\n5/ Return\n******************");
+									subChoice=lectureScanner.nextInt();
+									switch (subChoice) {
+										case 1: listOfEmployees.get(i).displayAll();
+												break;
+
+
+
+
+
+									}
+								} while (quitSubMenuCondition==0);
+
+								
+							
+
+
+
+
+
+
+							}
+						}
+						if (ifValue == 0) 
+							System.out.println("Employee not found.");
+						else
+							ifValue=0;
+						break;
+/*				
+
+				case 5: for (int i=0; i<listOfEmployees.size(); i++) {
+							if ((listOfEmployees.get(i).getFirstName()).equals(fName) && (listOfEmployees.get(i).getLastName()).equals(lName)){
 								System.out.println("Marque : ");
 								brand = lectureScanner.next();
 								System.out.println("Modèle : ");
@@ -72,11 +129,11 @@ public class Main {
 						break;
 
 				case 6: System.out.println("Veuillez entrer le nom de l'employé : ");
-						lastName = lectureScanner.next();
+						lName = lectureScanner.next();
 						System.out.println("Veuillez entrer le prénom de l'employé : ");
-						firstName = lectureScanner.next();
+						fName = lectureScanner.next();
 						for (int i=0; i<listOfEmployees.size(); i++) {
-							if ((listOfEmployees.get(i).getFirstName()).equals(firstName) && (listOfEmployees.get(i).getLastName()).equals(lastName)){
+							if ((listOfEmployees.get(i).getFirstName()).equals(fName) && (listOfEmployees.get(i).getLastName()).equals(lName)){
 								System.out.println("Marque : ");
 								brand = lectureScanner.next();
 								System.out.println("Modèle : ");
@@ -89,11 +146,11 @@ public class Main {
 						break;
 						
 				case 7: System.out.println("Veuillez entrer le nom de l'employé : ");
-						lastName = lectureScanner.next();
+						lName = lectureScanner.next();
 						System.out.println("Veuillez entrer le prénom de l'employé : ");
-						firstName = lectureScanner.next();
+						fName = lectureScanner.next();
 						for (int i=0; i<listOfEmployees.size(); i++) {
-							if ((listOfEmployees.get(i).getFirstName()).equals(firstName) && (listOfEmployees.get(i).getLastName()).equals(lastName)){
+							if ((listOfEmployees.get(i).getFirstName()).equals(fName) && (listOfEmployees.get(i).getLastName()).equals(lName)){
 								System.out.println("Marque : ");
 								brand = lectureScanner.next();
 								System.out.println("Modèle : ");
@@ -104,8 +161,8 @@ public class Main {
 							}
 						}
 						break;
-
-				case 10: quitMenuCondition++;
+*/
+				case 6: quitMenuCondition++;
 						break;
 
 				default: System.out.println("VALEUR INCORRECTE !");

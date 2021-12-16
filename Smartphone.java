@@ -1,26 +1,40 @@
-public class Smartphone{
-	private String brand;
-	private String model;
+/**
+ * Object management Smartphone
+ * @author Tom Durand
+ * @version 0.2
+ */
+public class Smartphone extends Device {
 	private int phoneNumber;
 
-	public Smartphone(String brand, String model, int phoneNumber){
-		this.brand=brand;
-		this.model=model;
+	/**
+	 * Creates a Smartphone Object, which is also a Device
+	 * @param phoneNumber 
+	 */
+	public Smartphone(String serialNumber, Double width, Double length, Double weight, String brand, String model, int phoneNumber){
+		super(serialNumber, width, length, weight, brand, model);
 		this.phoneNumber=phoneNumber;
 	}
-	public String getBrand(){
-		return brand;
-	}
-	public String getModel(){
-		return model;
-	}
+
+		// GETTER //
+
+	/**
+	 * Creates a Smartphone Object, which is also a Device
+	 * @return phoneNumber 
+	 */
 	public int getPhoneNumber(){
 		return phoneNumber;
 	}
+
+		// SETTER //
+
+	/**
+	 * Sets a new phone number
+	 * @param phoneNumber 
+	 */	
 	public void setPhoneNumber(int phoneNumber){
 		this.phoneNumber=phoneNumber;
 	}
-	public void display(){
-		System.out.println("La marque du SmartPhone est :" + brand + "\nLe mod?e du SmartPhone est : "  + model + "\nLe num?o du SmartPhone est : " + phoneNumber);
-	}
+
+	// OTHER METHODS //
+
 }
