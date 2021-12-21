@@ -1,7 +1,7 @@
 /**
- * Object management Laptop
+ * Object management Device Laptop
  * @author Tom Durand
- * @version 0.2
+ * @version 0.3
  */
 public class Laptop extends Device {
 	private String typeOfKeyboard;
@@ -52,5 +52,12 @@ public class Laptop extends Device {
 	 */	
 	public void setOperativeSystem(String operativeSystem){
 		this.operativeSystem=operativeSystem;
+	}
+
+	public void display(){
+		System.out.println("Type of device.....: laptop");
+		super.display();
+		System.out.println("Type Of Keyboard...:" + typeOfKeyboard);
+		System.out.println("Type Of OS.........:" + operativeSystem);
 	}
 } 

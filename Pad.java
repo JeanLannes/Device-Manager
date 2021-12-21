@@ -1,7 +1,7 @@
 /**
- * Object management Pad
+ * Object management Device Pad
  * @author Tom Durand
- * @version 0.2
+ * @version 0.3
  */
 public class Pad extends Device {
 	private String padScreen;
@@ -33,5 +33,11 @@ public class Pad extends Device {
 	 */	
 	public void setPadScreen(String padScreen){
 		this.padScreen=padScreen;
+	}
+
+	public void display(){
+		System.out.println("Type of device.....: pad");
+		super.display();
+		System.out.println("Type of screen.....: " + padScreen);
 	}
 } 

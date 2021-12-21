@@ -1,8 +1,10 @@
 /**
  * Object management Device (Smartphone / Pad / Laptop)
  * @author Tom Durand
- * @version 0.2
+ * @version 0.3
  */
+import java.util.*;
+
 public class Device {
 	private String serialNumber;
 	private Double width;
@@ -10,6 +12,7 @@ public class Device {
 	private Double weight;
 	private String brand;
 	private String model;
+    Scanner scan = new Scanner(System.in);
 
 	/**
 	 * Creates a Device Object
@@ -77,7 +80,14 @@ public class Device {
 		return model;
 	}
 
+		// OTHER METHODS 
+
 	public void display(){
-		System.out.println("La marque du SmartPhone est :" + brand + "\nLe mod?e du SmartPhone est : "  + model);
+		System.out.println("Serial number......: " + serialNumber);
+		System.out.println("Width..............: " + width);
+		System.out.println("Length.............: " + length);
+		System.out.println("Weight.............: " + weight);
+		System.out.println("Brand..............: " + brand);
+		System.out.println("Model..............: " + model);
 	}
 } 

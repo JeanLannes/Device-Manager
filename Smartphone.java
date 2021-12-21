@@ -1,7 +1,7 @@
 /**
  * Object management Smartphone
  * @author Tom Durand
- * @version 0.2
+ * @version 0.3
  */
 public class Smartphone extends Device {
 	private int phoneNumber;
@@ -37,4 +37,9 @@ public class Smartphone extends Device {
 
 	// OTHER METHODS //
 
+	public void display(){
+		System.out.println("Type of device.....: Smartphone");
+		super.display();
+		System.out.println("Phone number...... : " + phoneNumber);
+	}
 }
