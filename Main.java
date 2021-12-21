@@ -1,24 +1,35 @@
 /**
- * Object management Device (Smartphone / Pad / Laptop)
  * @author Tom Durand
- * @version 0.3
+ * @version 1.0
  */
 import java.util.*;
 
 public class Main {
 
+	/**
+	 * Returns the last name of the employee
+	 * @return lastName  
+	 */	
 	public static String lastName() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the employee's name........:");
 		return(scan.next());
 	}
 
+	/**
+	 * Returns the first name of the employee
+	 * @return firstName  
+	 */	
 	public static String firstName() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the employee's first name..: ");
 		return(scan.next());
 	}
 
+	/**
+	 * Returns the year of employment of the employee
+	 * @return hireYear  
+	 */	
 	public static String hireYear() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the date of employment.....: ");
@@ -98,7 +109,7 @@ public class Main {
 														case 1: listOfEmployees.get(i).addDevice(1);
 																break;
 
-														case 2: 
+														case 2: listOfEmployees.get(i).modifyDevice(1);
 																break;
  
 														case 3: listOfEmployees.get(i).deleteDevice(1);
@@ -118,7 +129,7 @@ public class Main {
 														case 1: listOfEmployees.get(i).addDevice(2);
 																break;
 
-														case 2:
+														case 2: listOfEmployees.get(i).modifyDevice(2);
 																break;
 
 														case 3: listOfEmployees.get(i).deleteDevice(2);
@@ -138,7 +149,7 @@ public class Main {
 														case 1: listOfEmployees.get(i).addDevice(3);
 																break;
 
-														case 2:
+														case 2: listOfEmployees.get(i).modifyDevice(3);
 																break;
 
 														case 3: listOfEmployees.get(i).deleteDevice(3);

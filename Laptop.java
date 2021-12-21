@@ -1,7 +1,7 @@
 /**
  * Object management Device Laptop
  * @author Tom Durand
- * @version 0.3
+ * @version 1.0
  */
 public class Laptop extends Device {
 	private String typeOfKeyboard;
@@ -54,10 +54,13 @@ public class Laptop extends Device {
 		this.operativeSystem=operativeSystem;
 	}
 
+	/**
+	 * Display all the info related to the device
+	 */	
 	public void display(){
 		System.out.println("Type of device.....: laptop");
 		super.display();
-		System.out.println("Type Of Keyboard...:" + typeOfKeyboard);
-		System.out.println("Type Of OS.........:" + operativeSystem);
+		System.out.println("Type Of Keyboard...: " + typeOfKeyboard);
+		System.out.println("Type Of OS.........: " + operativeSystem);
 	}
 } 
